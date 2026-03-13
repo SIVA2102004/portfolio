@@ -52,14 +52,26 @@
 <body>
     <header>
         <nav>
-            <div class="logo">JSSG</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="certificates.html" class="active" style="color: var(--accent-color);">Certificates</a></li>
-            </ul>
-            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
-                <i class="fas fa-moon"></i>
-            </button>
+            <div class="nav-brand" onclick="location.href='index.html'">
+                <div class="logo-circle logo-dark">JSSG</div>
+                <div class="logo-circle logo-light">
+                    <img src="profile.jpg" alt="Profile">
+                </div>
+            </div>
+            <div class="nav-actions">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="certificates.html" class="active">Certificates</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
         </nav>
     </header>
 
