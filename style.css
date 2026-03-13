@@ -31,18 +31,31 @@
     --bg-color: #f7f7f9;
     --text-primary: #18181b;
     --text-secondary: #52525b;
-    --accent-color: #eab308; /* Vibrant Yellow */
-    --accent-hover: #ca8a04; /* Darker Yellow */
-    --accent-glow: rgba(234, 179, 8, 0.4);
-    --accent-glow-soft: rgba(234, 179, 8, 0.08);
-    --accent-2: #f97316; /* Orange for light theme gradient */
-    --btn-text: #000000;
+    --accent-color: #3b82f6; /* Keep blue but adjusted for light */
+    --accent-hover: #1d4ed8;
+    --accent-glow: rgba(59, 130, 246, 0.3);
+    --accent-glow-soft: rgba(59, 130, 246, 0.05);
+    --accent-2: #8b5cf6;
+    --btn-text: #ffffff;
     --card-bg: #ffffff;
-    --card-bg-soft: rgba(0, 0, 0, 0.05);
+    --card-bg-soft: rgba(0, 0, 0, 0.03);
     --card-border: rgba(0, 0, 0, 0.08);
     --border-color: rgba(0, 0, 0, 0.1);
     --border-color-soft: rgba(0, 0, 0, 0.05);
-    --nav-bg: rgba(247, 247, 249, 0.85);
+    --nav-bg: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .social-circle {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .video-play-overlay {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="light"] .project-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
 }
 
 /* Reset & Base Styles */
@@ -956,7 +969,7 @@ ul {
 
 /* Projects */
 .projects {
-    background-color: #08080a;
+    background-color: var(--bg-color);
 }
 
 .project-grid {
@@ -968,14 +981,15 @@ ul {
 .project-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    border-radius: 12px;
-    padding: 2rem;
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
     transition: var(--transition);
     display: flex;
     flex-direction: column;
     height: 100%;
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
 .project-card::before {
@@ -985,7 +999,7 @@ ul {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--accent-color), #8b5cf6, var(--accent-color));
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-2, #8b5cf6));
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -1282,7 +1296,25 @@ footer {
 
     .hero-visual {
         order: 1;
-        transform: scale(0.9);
+        width: 100%;
+        max-width: 280px;
+        height: 280px;
+        margin: 0 auto;
+    }
+
+    .profile-wrapper {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .profile-img-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .circle-1, .circle-2 {
+        display: none; /* Hide background circles on small mobile to save space */
     }
 
     .hero-content {
@@ -1308,8 +1340,9 @@ footer {
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 2rem;
-        margin-bottom: 2.5rem;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        width: 100%;
     }
 
     .stat-item {
@@ -1329,7 +1362,22 @@ footer {
     .hero-media-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
-        padding: 0 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        padding: 0 0.5rem;
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+    }
+
+    .project-content h3 {
+        font-size: 1.3rem;
     }
 
     .burger {
@@ -1339,6 +1387,11 @@ footer {
 
     .overline {
         justify-content: center;
+    }
+
+    /* Standardize all section paddings for mobile */
+    .about, .experience, .projects, .documents, .contact {
+        padding: 4rem 1rem;
     }
 }
 
