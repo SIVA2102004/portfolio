@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfolio of Jakka Siva Subramanyam Guptha — AI Builder, Full-Stack Developer & UX Designer. Specializing in AI-enabled product interfaces with React, Next.js, and Python.">
+    <meta name="keywords" content="AI Developer, Full Stack Developer, UX Designer, React, Next.js, Python, Portfolio">
+    <meta name="author" content="Jakka Siva Subramanyam Guptha">
+    <meta property="og:title" content="JSSG | AI Builder & Full-Stack Developer">
+    <meta property="og:description"
+        content="UX Designer and Full-Stack Developer specializing in AI-enabled product interfaces.">
+    <meta property="og:type" content="website">
+    <title>JSSG | AI Builder & Full-Stack Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bento.css">
+    <link rel="stylesheet" href="certs.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-logo">JSSG</div>
+            <div class="preloader-bar">
+                <div class="preloader-bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="nav-brand">
+                <div class="logo-circle logo-dark">JSSG</div>
+                <div class="logo-circle logo-light">
+                    <img src="profile.jpg" alt="Profile">
+                </div>
+            </div>
+            <div class="nav-actions">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="#documents">Docs</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container hero-new">
+                <!-- Intro Header -->
+                <div class="hero-header">
+                    <h1 class="hero-title">
+                        <span class="greeting">Hello, I'm</span>
+                        <span class="hero-name-big">JAKKA SIVA SUBRAMANYAM GUPTHA</span>
+                    </h1>
+                    <p class="hero-tagline">AI Builder • Full-Stack Developer</p>
+                </div>
+
+                <!-- Combined Media Slider -->
+                <div class="hero-photo-slider" style="max-width: 900px; margin: 0 auto; width: 95%;">
+                    <div class="slider-track-wrapper">
+                        <div class="slider-track" id="photo-slider-track">
+                            <!-- Video Slide -->
+                            <div class="slide video-slide" style="position: relative;">
+                                <div class="intro-video-wrapper"
+                                    style="box-shadow: none; border: none; height: 100%; width: 100%; border-radius: 0; background: transparent; display: flex; align-items: center; justify-content: center; position: absolute; top:0; left: 0;">
+                                    <video id="hero-intro-video" controls poster="profile.jpg"
+                                        style="width: 100%; height: 100%; object-fit: contain;">
+                                        <source src="siva video.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-play-overlay" id="video-play-overlay">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Image Slides -->
+                            <div class="slide"><img src="profile.jpg" alt="Photo 1"></div>
+                            <div class="slide"><img src="CERTIFICATES/IMG-20241121-WA0029.jpg" alt="Photo 2"></div>
+                            <div class="slide"><img src="CERTIFICATES/IMG-20241208-WA0015.jpg" alt="Photo 3"></div>
+                            <div class="slide"><img src="CERTIFICATES/IMG-20241208-WA0018.jpg" alt="Photo 4"></div>
+                        </div>
+                    </div>
+                    <div class="slider-controls" style="flex-direction: column; gap: 1rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <button class="slider-btn" id="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                            <div class="slider-dots" id="slider-dots"></div>
+                            <button class="slider-btn" id="slider-next"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <a href="#about" class="btn primary" style="padding: 0.6rem 2rem; font-size: 0.9rem;">
+                            About Me — See Full Details <i class="fas fa-arrow-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-title-bar">
+                    <span class="section-num">01</span>
+                    <h2 class="section-heading">ABOUT</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <!-- Bento Grid Layout -->
+                <div class="bento-grid">
+                    <!-- Main Text Card -->
+                    <div class="bento-card main-text-card">
+                        <div class="card-glow-top"></div>
+                        <h3>Building AI-Powered Products</h3>
+                        <p>UX Designer and Full-Stack Developer specializing in AI-enabled product interfaces. Building
+                            scalable user interfaces and production-ready applications using technologies like Figma,
+                            React, Next.js, and Python-based APIs.</p>
+                        <p>Currently pursuing B.Tech in Artificial Intelligence at Marwadi University, while working as
+                            a Full Stack Engineer. Hands-on experience in computer vision systems and AI integration.
+                        </p>
+                    </div>
+
+                    <!-- Info Cards Grid (Right Side) -->
+                    <div class="info-grid-wrapper">
+                        <!-- Location -->
+                        <div class="bento-card info-card">
+                            <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                            <span class="label">LOCATION</span>
+                            <h4>Bethamcherla, India</h4>
+                            <span class="sub-text">IST (UTC+5:30)</span>
+                        </div>
+                        <!-- Focus -->
+                        <div class="bento-card info-card">
+                            <div class="icon-box"><i class="fas fa-crosshairs"></i></div>
+                            <span class="label">FOCUS</span>
+                            <h4>AI, Full-Stack & UX</h4>
+                            <span class="sub-text">React + Next.js + Python</span>
+                        </div>
+                        <!-- Projects -->
+                        <div class="bento-card info-card">
+                            <h4 id="about-project-count" class="stat-big">0</h4>
+                            <span class="label">PROJECTS BUILT</span>
+                            <span class="sub-text">Web, Mobile, AI</span>
+                        </div>
+                        <!-- Years -->
+                        <div class="bento-card info-card">
+                            <h4 class="stat-big">1+</h4>
+                            <span class="label">YEAR INDUSTRIAL</span>
+                            <span class="sub-text">Experience</span>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Row -->
+                    <a href="certificates.html" class="bento-card certs-card"
+                        style="text-decoration: none; cursor: pointer;">
+                        <h4 class="stat-big" id="about-cert-count">0</h4>
+                        <span class="label">CERTIFICATIONS</span>
+                        <div class="cert-tags">
+                            <span>NXTWAVE</span><span>AWS</span><span>Cisco</span>
+                            <span>Google</span><span>IBM</span><span>Infosys</span>
+                        </div>
+                        <div class="card-link-hint"
+                            style="margin-top: auto; font-size: 0.75rem; color: var(--accent-color); display: flex; align-items: center; gap: 5px;">
+                            View All <i class="fas fa-rocket"></i>
+                        </div>
+                    </a>
+
+                    <div class="bento-card style-card">
+                        <div class="icon-box"><i class="fas fa-code"></i></div>
+                        <span class="label">STYLE</span>
+                        <h4>Vibe Coder</h4>
+                        <span class="sub-text">Ship Fast</span>
+                    </div>
+
+                    <div class="bento-card uni-card">
+                        <div class="icon-box"><i class="fas fa-graduation-cap"></i></div>
+                        <span class="label">UNIVERSITY</span>
+                        <h4>Marwadi University</h4>
+                        <span class="sub-text">B.Tech in AI</span>
+                    </div>
+
+                    <!-- Tech Stack Full Width -->
+                    <div class="bento-card tech-stack-card">
+                        <span class="label">TECH STACK</span>
+                        <div class="tech-marquee">
+                            <div class="marquee-track">
+                                <span>AWS</span><span>Python</span><span>TensorFlow</span><span>PyTorch</span>
+                                <span>OpenCV</span><span>React</span><span>Next.js</span><span>TypeScript</span>
+                                <span>FastAPI</span><span>Flask</span><span>Vite</span><span>Tailwind</span>
+                                <span>Figma</span><span>Docker</span><span>Git</span><span>PostgreSQL</span>
+                                <!-- Duplicated for seamless scrolling -->
+                                <span>AWS</span><span>Python</span><span>TensorFlow</span><span>PyTorch</span>
+                                <span>OpenCV</span><span>React</span><span>Next.js</span><span>TypeScript</span>
+                                <span>FastAPI</span><span>Flask</span><span>Vite</span><span>Tailwind</span>
+                                <span>Figma</span><span>Docker</span><span>Git</span><span>PostgreSQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Experience</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Full Stack Engineer</h3>
+                            <span class="date">Present</span>
+                            <p>Built scalable React/Next.js frontends for core product flows, improving load
+                                performance. Developed APIs to support AI features and collaborated with design teams.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Computer Vision Intern</h3>
+                            <span class="date">2023 - 2024</span>
+                            <p>Developed real-time object detection pipelines using OpenCV and TensorFlow. Optimized
+                                models for accuracy and latency in production workflows.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>UI/UX Designer</h3>
+                            <span class="date">2022 - 2023</span>
+                            <p>Designed and prototyped user interfaces using Figma. Created wireframes and interactive
+                                prototypes for web and mobile platforms.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Projects</h2>
+                </div>
+                <div class="project-grid">
+                    <!-- Calculator -->
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3><i class="fas fa-calculator"
+                                    style="margin-right: 10px; color: var(--accent-color);"></i>Creative Calculator</h3>
+                            <p>A sophisticated web-based calculator featuring advanced mathematical operations and a
+                                responsive, glassmorphic UI design.</p>
+                            <div class="tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/SIVA2102004/codealpha_tasks/tree/main/CodeAlpha_Calculator"
+                                    target="_blank"
+                                    style="text-decoration: none; color: var(--text-secondary); font-size: 0.9rem; transition: var(--transition); display: inline-flex; align-items: center; gap: 8px;">
+                                    <i class="fab fa-github"></i> View Source
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Music Player -->
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3><i class="fas fa-music"
+                                    style="margin-right: 10px; color: var(--accent-color);"></i>Music Player</h3>
+                            <p>An interactive music streaming interface with playlist controls, real-time progress
+                                tracking, and a dynamic audio visualization experience.</p>
+                            <div class="tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/SIVA2102004/codealpha_tasks/tree/main/CodeAlpha_Music-player"
+                                    target="_blank"
+                                    style="text-decoration: none; color: var(--text-secondary); font-size: 0.9rem; transition: var(--transition); display: inline-flex; align-items: center; gap: 8px;">
+                                    <i class="fab fa-github"></i> View Source
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image Gallery -->
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3><i class="fas fa-images"
+                                    style="margin-right: 10px; color: var(--accent-color);"></i>Smart Gallery</h3>
+                            <p>A fully responsive image showcase platform with category filtering, automated lightbox
+                                transitions, and optimized asset loading.</p>
+                            <div class="tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/SIVA2102004/codealpha_tasks/tree/main/CodeAlpha_image-gallery"
+                                    target="_blank"
+                                    style="text-decoration: none; color: var(--text-secondary); font-size: 0.9rem; transition: var(--transition); display: inline-flex; align-items: center; gap: 8px;">
+                                    <i class="fab fa-github"></i> View Source
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="documents" class="documents">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Documents</h2>
+                </div>
+                <div class="doc-grid">
+                    <div class="doc-card">
+                        <i class="fas fa-file-alt doc-icon"></i>
+                        <div class="doc-info">
+                            <h3>Resume</h3>
+                            <p>AI Builder • Full-Stack Developer • UX Designer</p>
+                            <a href="CERTIFICATES/resume.pdf" class="btn secondary small-btn" target="_blank">Download
+                                CV</a>
+                        </div>
+                    </div>
+                    <div class="doc-card">
+                        <i class="fas fa-award doc-icon"></i>
+                        <div class="doc-info">
+                            <h3>Patent</h3>
+                            <p>Swimming Pool Safety & Monitoring System</p>
+                            <a href="202621006605.pdf" class="btn secondary small-btn" target="_blank">View Patent</a>
+                        </div>
+                    </div>
+
+                    <div class="doc-card">
+                        <i class="fas fa-certificate doc-icon"></i>
+                        <div class="doc-info">
+                            <h3>Certificates</h3>
+                            <p>Verified Achievements: <span id="doc-cert-count" class="highlight-number">0</span></p>
+                            <a href="certificates.html" class="btn secondary small-btn"
+                                style="margin-top: 1rem; display: inline-block; text-decoration: none;">View
+                                Certificates</a>
+                        </div>
+                    </div>
+
+                    <div class="doc-card">
+                        <i class="fas fa-images doc-icon"></i>
+                        <div class="doc-info">
+                            <h3>Gallery</h3>
+                            <p>Moments & Memories</p>
+                            <a href="gallery.html" class="btn secondary small-btn"
+                                style="margin-top: 1rem; display: inline-block; text-decoration: none;">View
+                                Gallery</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <h2>Let's Talk</h2>
+                    <p>Have a project in mind or want to discuss AI? Let's build something amazing together.</p>
+                    <button class="btn primary big-btn" id="contact-trigger">Get In Touch</button>
+
+                    <div class="social-links-minimal">
+                        <a href="https://www.linkedin.com/in/sivasubbuu" target="_blank" class="social-circle"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/SIVA2102004" target="_blank" class="social-circle"><i
+                                class="fab fa-github"></i></a>
+                        <a href="javascript:void(0)" class="social-circle" id="email-copy-trigger" title="Copy Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <div id="copy-toast" class="copy-toast">Email copied to clipboard!</div>
+                        <a href="#" target="_blank" class="social-circle"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" class="social-circle"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content contact-modal-content">
+            <span class="close-modal" id="close-contact-modal">&times;</span>
+            <div class="contact-form-container">
+                <div class="form-header">
+                    <h2>Get In Touch</h2>
+                    <p>Drop a message and I'll get back to you shortly.</p>
+                </div>
+                <div class="google-form-wrapper">
+                    <iframe
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSdur72hTlRokcWw1uKs-6jyRr8r51JfDn3P1HYcG2tnYhyX_g/viewform?embedded=true"
+                        width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">
+                        Loading…
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 JSSG. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="video-container">
+                <video id="profile-video" controls>
+                    <source src="siva video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
