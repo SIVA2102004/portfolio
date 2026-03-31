@@ -202,7 +202,8 @@ const certificateData = [
             { name: "Masterclass Certificate 4", date: "Dec 2024", link: "CERTIFICATES/nxt wave/IMG-20241208-WA0017.jpg" },
             { name: "Technical Milestone - ID 36UXL4A66N", date: "2024", link: "CERTIFICATES/nxt wave/36UXL4A66N.png" },
             { name: "Technical Milestone - ID OZQKV8YV9W", date: "2024", link: "CERTIFICATES/nxt wave/OZQKV8YV9W.png" },
-            { name: "Skill Validation - ID 94P3JLOMEE", date: "2024", link: "CERTIFICATES/nxt wave/94P3JLOMEE.png" }
+            { name: "Skill Validation - ID 94P3JLOMEE", date: "2024", link: "CERTIFICATES/nxt wave/94P3JLOMEE.png" },
+            { name: "Masterclass Certificate - Vinutha", date: "2024", link: "CERTIFICATES/vinutha.png" }
         ]
     },
     {
