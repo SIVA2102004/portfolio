@@ -260,12 +260,31 @@ const certificateData = [
     {
         category: "AI & CLOUD SPECIALIZATIONS",
         certs: [
-            { name: "Microsoft Learn: AI Studio", date: "2024", link: "CERTIFICATES/New folder (2)/AI STUDIO.pdf" },
-            { name: "Achievements: Microsoft Learn", date: "2024", link: "CERTIFICATES/New folder (2)/Achievements - jakkasivasubramanyamguptha-7624 _ Microsoft Learn.pdf" },
-            { name: "RAG (Retrieval Augmented Generation)", date: "2024", link: "CERTIFICATES/New folder (2)/RAG.pdf" },
-            { name: "AI Development Lifecycle", date: "2024", link: "CERTIFICATES/New folder (2)/DEVELOP.pdf" },
-            { name: "AI Exploration & Strategy", date: "2024", link: "CERTIFICATES/New folder (2)/EXPLORE.pdf" },
-            { name: "AI Integration Systems", date: "2024", link: "CERTIFICATES/New folder (2)/INTEGRATE.pdf" }
+            { name: "Microsoft Learn: AI Studio", date: "2024", link: "CERTIFICATES/AI STUDIO.pdf" }, // Assuming they are moved to CERTIFICATES root
+            { name: "Achievements: Microsoft Learn", date: "2024", link: "CERTIFICATES/Achievements - jakkasivasubramanyamguptha-7624 _ Microsoft Learn.pdf" },
+            { name: "RAG (Retrieval Augmented Generation)", date: "2024", link: "CERTIFICATES/RAG.pdf" },
+            { name: "AI Development Lifecycle", date: "2024", link: "CERTIFICATES/DEVELOP.pdf" },
+            { name: "AI Exploration & Strategy", date: "2024", link: "CERTIFICATES/EXPLORE.pdf" },
+            { name: "AI Integration Systems", date: "2024", link: "CERTIFICATES/INTEGRATE.pdf" }
+        ]
+    }, // Wait, I see I should add INFOSYS here too
+    {
+        category: "INFOSYS SPRINGBOARD",
+        certs: [
+            { name: "Computer Vision 101", date: "Mar 24, 2026", link: "CERTIFICATES/infosys/0ef0b84e-8da5-4f87-a6ad-e52ab24c05da.pdf" },
+            { name: "Introduction to Robotic Process Automation", date: "Mar 24, 2026", link: "CERTIFICATES/infosys/4e2fdd58-558e-4fca-9fce-ad259a58cdd3.pdf" },
+            { name: "Deep Learning for Developers", date: "Mar 24, 2026", link: "CERTIFICATES/infosys/51423e0f-3224-4146-9fcd-8de01ab6d6e4.pdf" },
+            { name: "Artificial Intelligence", date: "Mar 24, 2026", link: "CERTIFICATES/infosys/603fb698-0a4a-4972-a62a-930d3d9d475a.pdf" },
+            { name: "Agile Scrum in Practice", date: "Mar 24, 2026", link: "CERTIFICATES/infosys/7612a8dd-2c6d-49ba-a7c0-0c49c01f8e88.pdf" },
+            { name: "Introduction to Artificial Intelligence", date: "Mar 24, 2026", link: "CERTIFICATES/infosys/9e3cca4c-19ac-438d-9eab-22a57892949d.pdf" },
+            { name: "Introduction to Deep Learning", date: "Mar 24, 2026", link: "CERTIFICATES/infosys/a5e33b1e-115c-4300-9460-ddd31dec49da.pdf" },
+            { name: "Generative AI Unleashing", date: "Mar 24, 2026", link: "CERTIFICATES/infosys/b1ff4438-ceff-421c-8703-3de1d9ad7aec.pdf" },
+            { name: "GPT-3 for developers", date: "Mar 24, 2026", link: "CERTIFICATES/infosys/bc1dd8ab-8f95-47f6-b71b-b55efce7e4ee.pdf" },
+            { name: "Introduction to OpenAI GPT Models", date: "Mar 24, 2026", link: "CERTIFICATES/infosys/d911ee7d-67e4-456e-ad8b-3a1bcce81040.pdf" },
+            { name: "Prompt Engineering", date: "Mar 24, 2026", link: "CERTIFICATES/infosys/e3161a99-52d4-49c9-8367-a0e306f05687.pdf" },
+            { name: "Principles of Generative AI", date: "Mar 28, 2026", link: "CERTIFICATES/infosys/e3b5ff4d-f0a3-4937-a0a3-d13ad160a2fd.pdf" },
+            { name: "Generative models for developers", date: "Mar 24, 2026", link: "CERTIFICATES/infosys/eab23830-ae8a-4c8d-9f5c-db85a387a093.pdf" },
+            { name: "Artificial Intelligence Primer", date: "Mar 28, 2026", link: "CERTIFICATES/infosys/ff474aad-2b37-4668-b71c-254d0d7f1488.pdf" }
         ]
     }
 ];
