@@ -616,6 +616,164 @@ const initEmailCopy = () => {
 };
 
 
+// --- Live GitHub Projects Integration ---
+const syncGitHubProjects = async () => {
+    const projectGrid = document.getElementById('project-grid');
+    if (!projectGrid) return;
+
+    const username = 'SIVA2102004';
+    try {
+        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=pushed&per_page=30`);
+        if (!response.ok) return;
+
+        const repos = await response.json();
+        if (!Array.isArray(repos) || repos.length === 0) return;
+
+        // Repositories to exclude (portfolio self or forks/internal docs if any)
+        const excludedNames = ['portfolio', 'SIVA2102004'];
+        const activeRepos = repos.filter(repo => !repo.fork && !excludedNames.includes(repo.name.toLowerCase()));
+
+        // Curated projects metadata mapping for rich descriptions & tags from resume
+        const projectMeta = {
+            'multi-agent-llm-pipeline': {
+                name: 'Multi-Agent LLM Pipeline',
+                icon: 'fa-robot',
+                desc: 'An autonomous multi-agent workflow for automated code review, bug detection, security vulnerability analysis, and test generation.',
+                tags: ['Python', 'LangGraph', 'Groq', 'ChromaDB']
+            },
+            'zenith-ai': {
+                name: 'Zenith AI – Job Platform',
+                icon: 'fa-briefcase',
+                desc: 'Advanced job recommendation platform utilizing resume parsing and NLP-driven skill matching with TF-IDF against industry requirements.',
+                tags: ['React', 'Node.js', 'Express', 'SQLite', 'NLP']
+            },
+            'compiler-front-end': {
+                name: 'Compiler Front-End',
+                icon: 'fa-terminal',
+                desc: 'Lexical and syntax analysis with symbol table management, syntax tree generation, error handling, and interactive visualization.',
+                tags: ['C', 'Flex', 'GNU Bison', 'JavaScript']
+            },
+            'nageshwar-city-youth-comitee': {
+                name: 'Ganesh Chanda Management',
+                icon: 'fa-hand-holding-heart',
+                desc: 'Community donation and receipt management application featuring real-time collection tracking, receipt generation, and records management.',
+                tags: ['TypeScript', 'JavaScript', 'Web App']
+            },
+            'telugu-movie-time': {
+                name: 'Telugu Movie Time',
+                icon: 'fa-film',
+                desc: 'Interactive web platform providing entertainment listings, showtimes, media exploration, and streaming recommendations.',
+                tags: ['JavaScript', 'HTML5', 'CSS3']
+            },
+            'riceleafdetection': {
+                name: 'Rice Leaf Disease Detection',
+                icon: 'fa-leaf',
+                desc: 'Deep learning and computer vision pipeline for automated agricultural disease diagnosis and crop leaf health classification.',
+                tags: ['Python', 'Computer Vision', 'Deep Learning']
+            },
+            'smartsilentcampus': {
+                name: 'Smart Silent Campus',
+                icon: 'fa-volume-mute',
+                desc: 'Location-aware smart mobile application designed for automated phone profile management and silent zoning across campus spaces.',
+                tags: ['Kotlin', 'Android', 'Mobile App']
+            },
+            'personalbank': {
+                name: 'Personal Banking Application',
+                icon: 'fa-university',
+                desc: 'Secure banking portal featuring user accounts, transactional history, balance tracking, and ledger operations.',
+                tags: ['Python', 'Backend', 'Security']
+            },
+            'projecthub-ai': {
+                name: 'ProjectHub AI',
+                icon: 'fa-lightbulb',
+                desc: 'AI-assisted developer workspace and suite of machine intelligence tools, resume analyzers, and productivity apps.',
+                tags: ['JavaScript', 'AI', 'Full Stack']
+            }
+        };
+
+        // Format a repo name nicely into title case if not in curated list
+        const formatTitle = (name) => {
+            return name
+                .replace(/[-_]/g, ' ')
+                .replace(/\b\w/g, char => char.toUpperCase());
+        };
+
+        // Pick top repositories
+        const reposToDisplay = activeRepos.slice(0, 9);
+        if (reposToDisplay.length === 0) return;
+
+        projectGrid.innerHTML = '';
+
+        reposToDisplay.forEach(repo => {
+            const key = repo.name.toLowerCase();
+            const meta = projectMeta[key] || {};
+
+            const displayName = meta.name || formatTitle(repo.name);
+            const iconClass = meta.icon || 'fa-code-branch';
+            const description = meta.desc || repo.description || 'Modern software development project built and maintained on GitHub.';
+            
+            // Build tags array
+            let tags = meta.tags || [];
+            if (tags.length === 0) {
+                if (repo.language) tags.push(repo.language);
+                if (repo.topics && Array.isArray(repo.topics)) {
+                    repo.topics.slice(0, 3).forEach(topic => tags.push(topic));
+                }
+                if (tags.length === 0) tags = ['GitHub', 'Project'];
+            }
+
+            const card = document.createElement('div');
+            card.className = 'project-card active';
+
+            card.innerHTML = `
+                <div class="project-content">
+                    <h3><i class="fas ${iconClass}" style="margin-right: 10px; color: var(--accent-color);"></i>${displayName}</h3>
+                    <p>${description}</p>
+                    <div class="tags">
+                        ${tags.map(t => `<span>${t}</span>`).join('')}
+                    </div>
+                    <div class="project-links">
+                        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer"
+                           style="text-decoration: none; color: var(--text-secondary); font-size: 0.9rem; transition: var(--transition); display: inline-flex; align-items: center; gap: 8px;">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            projectGrid.appendChild(card);
+        });
+
+        // Re-calculate & update dynamic project counts
+        updateIndexCounts();
+
+        // Also fetch total public repo count from GitHub user profile
+        try {
+            const userResp = await fetch(`https://api.github.com/users/${username}`);
+            if (userResp.ok) {
+                const userData = await userResp.json();
+                const totalPublicRepos = userData.public_repos || reposToDisplay.length;
+                
+                const bentoProjectCount = document.getElementById('about-project-count');
+                const heroProjectCount = document.getElementById('hero-project-count');
+
+                if (bentoProjectCount) {
+                    bentoProjectCount.innerText = totalPublicRepos + "+";
+                }
+                if (heroProjectCount) {
+                    heroProjectCount.setAttribute('data-target', totalPublicRepos);
+                    heroProjectCount.innerText = totalPublicRepos;
+                }
+            }
+        } catch (e) {
+            // Ignore user profile error and use rendered card count
+        }
+
+    } catch (err) {
+        console.warn('GitHub projects live sync fallback to static HTML: ', err);
+    }
+};
+
 // ==========================================
 // Initialize Everything
 // ==========================================
@@ -636,6 +794,7 @@ const app = () => {
     initPhotoSlider();
     contactModal();
     initEmailCopy();
+    syncGitHubProjects();
 };
 
 app();
