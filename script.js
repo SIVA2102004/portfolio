@@ -623,7 +623,8 @@ const syncGitHubProjects = async () => {
 
     const username = 'SIVA2102004';
     try {
-        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=pushed&per_page=30`);
+        // Cache-busting timestamp ensures changes in GitHub repos reflect immediately without delay
+        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=pushed&per_page=30&t=${Date.now()}`);
         if (!response.ok) return;
 
         const repos = await response.json();
@@ -837,7 +838,20 @@ const app = () => {
     initPhotoSlider();
     contactModal();
     initEmailCopy();
+    
+    // Initial live sync from GitHub
     syncGitHubProjects();
+
+    // Auto-update: periodically check every 60 seconds for newly pushed projects
+    setInterval(syncGitHubProjects, 60000);
+
+    // Auto-update: immediately refresh when the user returns to the portfolio tab
+    window.addEventListener('focus', syncGitHubProjects);
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+            syncGitHubProjects();
+        }
+    });
 };
 
 app();
