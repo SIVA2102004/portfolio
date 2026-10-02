@@ -698,13 +698,12 @@ const syncGitHubProjects = async () => {
                 .replace(/\b\w/g, char => char.toUpperCase());
         };
 
-        // Pick top repositories
-        const reposToDisplay = activeRepos.slice(0, 9);
-        if (reposToDisplay.length === 0) return;
-
+        // Render all projects, but hide those after the 9th initially
         projectGrid.innerHTML = '';
+        const INITIAL_LIMIT = 9;
+        let isExpanded = false;
 
-        reposToDisplay.forEach(repo => {
+        activeRepos.forEach((repo, index) => {
             const key = repo.name.toLowerCase();
             const meta = projectMeta[key] || {};
 
@@ -724,6 +723,10 @@ const syncGitHubProjects = async () => {
 
             const card = document.createElement('div');
             card.className = 'project-card active';
+            if (index >= INITIAL_LIMIT) {
+                card.classList.add('project-card-extra');
+                card.style.display = 'none';
+            }
 
             card.innerHTML = `
                 <div class="project-content">
@@ -744,6 +747,46 @@ const syncGitHubProjects = async () => {
             projectGrid.appendChild(card);
         });
 
+        // Set up View More / Show Less button if there are more than 9 projects
+        const toggleBtn = document.getElementById('toggle-projects-btn');
+        const toggleText = document.getElementById('toggle-projects-text');
+        const toggleIcon = document.getElementById('toggle-projects-icon');
+
+        if (toggleBtn) {
+            if (activeRepos.length > INITIAL_LIMIT) {
+                toggleBtn.style.display = 'inline-flex';
+                toggleBtn.onclick = () => {
+                    isExpanded = !isExpanded;
+                    const extraCards = projectGrid.querySelectorAll('.project-card-extra');
+                    extraCards.forEach(c => {
+                        c.style.display = isExpanded ? 'flex' : 'none';
+                        if (isExpanded) {
+                            c.classList.add('active');
+                        }
+                    });
+
+                    if (toggleText) {
+                        toggleText.innerText = isExpanded ? 'Show Less' : `View More Projects (${activeRepos.length - INITIAL_LIMIT}+)`;
+                    }
+                    if (toggleIcon) {
+                        toggleIcon.className = isExpanded ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
+                    }
+
+                    if (!isExpanded) {
+                        const projectsSection = document.getElementById('projects');
+                        if (projectsSection) {
+                            projectsSection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                };
+                if (toggleText) {
+                    toggleText.innerText = `View More Projects (${activeRepos.length - INITIAL_LIMIT}+)`;
+                }
+            } else {
+                toggleBtn.style.display = 'none';
+            }
+        }
+
         // Re-calculate & update dynamic project counts
         updateIndexCounts();
 
@@ -752,7 +795,7 @@ const syncGitHubProjects = async () => {
             const userResp = await fetch(`https://api.github.com/users/${username}`);
             if (userResp.ok) {
                 const userData = await userResp.json();
-                const totalPublicRepos = userData.public_repos || reposToDisplay.length;
+                const totalPublicRepos = userData.public_repos || activeRepos.length;
                 
                 const bentoProjectCount = document.getElementById('about-project-count');
                 const heroProjectCount = document.getElementById('hero-project-count');
